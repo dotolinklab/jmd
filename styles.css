@@ -1,0 +1,674 @@
+/* 전역 스타일 */
+:root {
+    --primary-color: #303F9F;
+    --secondary-color: #f5f7fd;
+    --text-color: #333;
+    --background-color: #ffffff;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --content-width: 1200px;
+    --content-padding: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Paperlogy', 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding: 0;
+}
+
+.container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
+}
+
+/* 네비게이션 바 */
+.navbar {
+    padding: 0.8rem 0;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    margin: 0;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    text-decoration: none;
+    color: var(--primary-color);
+    align-items: center;
+    height: 40px;
+}
+
+.logo a::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23303F9F"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    font-weight: 800;
+    font-family: 'Paperlogy', sans-serif;
+    color: var(--primary-color);
+}
+
+/* 히어로 섹션 */
+.hero {
+    background-color: var(--primary-color);
+    padding: 4rem 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 0;
+    margin-bottom: 3rem;
+}
+
+.hero-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
+}
+
+.hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: 'Paperlogy', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* 검색 박스 */
+.search-box {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    background: white;
+    border-radius: 100px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.search-box input {
+    width: 100%;
+    height: 52px;
+    padding: 0 60px 0 48px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+}
+
+.search-box input::placeholder {
+    color: #ccc;
+}
+
+.search-box::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23cccccc"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>') center/contain no-repeat;
+}
+
+.search-box button {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    color: transparent;
+    font-size: 0;
+    cursor: pointer;
+}
+
+/* 카테고리 버튼 */
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.category-buttons button {
+    flex: 1;
+    min-width: 90px;
+    max-width: 120px;
+    height: 44px;
+    padding: 0;
+    font-size: 0.95rem;
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-buttons button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.category-buttons button.active {
+    background: white;
+    color: #1967d2;
+    border: none;
+}
+
+/* 카드 섹션 */
+.card-section {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 100%;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card-category {
+    background-color: #f0f4ff;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    border-bottom: 1px solid #e6ecff;
+}
+
+.card-body {
+    padding: 1.25rem 1.25rem 0.75rem;
+    flex: 1;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: #384068;
+    line-height: 1.4;
+    font-weight: 600;
+    font-family: 'Paperlogy', sans-serif;
+}
+
+.card p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.card-footer {
+    padding: 0;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.card a {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 0;
+    transition: background-color 0.2s;
+}
+
+.card a:hover {
+    background-color: #263383;
+    text-decoration: none;
+}
+
+/* 광고 섹션 */
+.ad-section {
+    max-width: 100%;
+    margin: 1rem auto 2rem;
+    padding: 0;
+}
+
+.ad-container {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    min-height: 100px;
+}
+
+/* 푸터 */
+footer {
+    background-color: var(--secondary-color);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+footer p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    :root {
+        --content-padding: 1rem;
+    }
+    
+    body {
+        background: #f8f9fa;
+        min-height: 100vh;
+        padding: 0;
+    }
+    
+    .container {
+        padding: 0 var(--content-padding);
+    }
+    
+    .navbar {
+        padding: 0.8rem 0;
+        margin-bottom: 0;
+        background-color: #fff;
+    }
+    
+    .logo {
+        padding: 0.3rem 0;
+    }
+    
+    .logo a {
+        height: 36px;
+    }
+    
+    .logo a::before {
+        width: 26px;
+        height: 26px;
+        margin-right: 8px;
+    }
+    
+    .logo-text {
+        font-size: 1.3rem;
+    }
+    
+    .hero {
+        padding: 2rem 0;
+        background: var(--primary-color);
+        border-radius: 0;
+        position: relative;
+        z-index: 1;
+        min-height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .hero-content {
+        padding: 0 var(--content-padding);
+        max-width: 100%;
+    }
+    
+    .hero-inner {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        word-break: keep-all;
+        line-height: 1.3;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+        padding: 0;
+        opacity: 0.8;
+        line-height: 1.4;
+        word-break: keep-all;
+    }
+
+    .search-box {
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        border: none;
+        background: white;
+        border-radius: 100px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        padding: 0;
+        max-width: none;
+    }
+
+    .search-box input {
+        width: 100%;
+        height: 44px;
+        font-size: 0.95rem;
+        padding: 0 48px 0 40px;
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+
+    .search-box input::placeholder {
+        color: #ccc;
+    }
+
+    .search-box::before {
+        left: 12px;
+        width: 18px;
+        height: 18px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23cccccc"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>') center/contain no-repeat;
+    }
+
+    .search-box button {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        padding: 8px 16px;
+        color: transparent;
+        font-size: 0;
+        cursor: pointer;
+    }
+
+    .category-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 0;
+        margin-top: 1.5rem;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: none;
+    }
+
+    .category-buttons button {
+        width: 100%;
+        height: 44px;
+        padding: 0;
+        font-size: 0.875rem;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        word-break: keep-all;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .category-buttons button:active {
+        opacity: 0.9;
+    }
+
+    .category-buttons button.active {
+        background: white;
+        color: var(--primary-color);
+        border: none;
+    }
+
+    .card-section {
+        padding: 1rem 0 2rem;
+        background: var(--secondary-color);
+        border-radius: 0;
+        position: relative;
+        z-index: 0;
+        gap: 1rem;
+    }
+
+    .card {
+        background: white;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e0e0e0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: transform 0.2s;
+    }
+
+    .card:last-child {
+        margin-bottom: 0;
+    }
+
+    .card-category {
+        background-color: #f0f4ff;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--primary-color);
+        border-bottom: 1px solid #e6ecff;
+    }
+
+    .card-body {
+        padding: 1rem 1rem 0.75rem;
+        flex: 1;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem 0;
+        color: #384068;
+        line-height: 1.4;
+    }
+
+    .card p {
+        display: block;
+        color: #666;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .card-footer {
+        padding: 0;
+        background-color: var(--primary-color);
+        display: flex;
+        justify-content: center;
+        margin-top: auto;
+        border-top: none;
+    }
+
+    .card a {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.875rem;
+        border-radius: 0;
+        transition: background-color 0.2s;
+    }
+
+    .card a:active {
+        background-color: #263383;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .ad-section {
+        margin: 1rem auto 1.5rem;
+    }
+    
+    .ad-container {
+        border-radius: 0;
+    }
+}
+
+/* Paperlogy 폰트 설정 */
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('fonts/Paperlogy-1Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('fonts/Paperlogy-2ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('fonts/Paperlogy-3Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('fonts/Paperlogy-4Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('fonts/Paperlogy-5Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('fonts/Paperlogy-6SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('fonts/Paperlogy-7Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('fonts/Paperlogy-8ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('fonts/Paperlogy-9Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+.privacy-ad {
+    margin-bottom: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .privacy-ad {
+        margin-bottom: 1.5rem;
+        border-radius: 4px;
+    }
+} 
