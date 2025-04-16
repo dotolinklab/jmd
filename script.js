@@ -427,7 +427,7 @@ function updateCards() {
                 <p>${item.description}</p>
             </div>
             <div class="card-footer">
-                <a href="${item.url}" target="_blank">바로가기</a>
+                <a href="${item.url}">바로가기</a>
             </div>
         `;
         
@@ -437,9 +437,9 @@ function updateCards() {
             if (e.target.tagName === 'A') {
                 return;
             }
-            // 기본 이벤트 방지 및 새 탭에서 링크 열기
+            // 기본 이벤트 방지 및 현재 창에서 링크 열기
             e.preventDefault();
-            window.open(item.url, '_blank');
+            window.location.href = item.url;
         });
         
         cardContainer.appendChild(card);
