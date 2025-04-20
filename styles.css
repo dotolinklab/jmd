@@ -121,12 +121,14 @@ body {
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: none;
+    display: flex;
+    align-items: center;
 }
 
 .search-box input {
     width: 100%;
     height: 52px;
-    padding: 0 60px 0 48px;
+    padding: 0 16px 0 48px;
     border: none;
     outline: none;
     font-size: 1rem;
@@ -149,16 +151,23 @@ body {
 }
 
 .search-box button {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
+    position: relative;
+    right: 0;
+    background-color: var(--primary-color);
+    color: white;
     border: none;
-    padding: 8px 16px;
-    color: transparent;
-    font-size: 0;
+    border-radius: 0 100px 100px 0;
+    height: 52px;
+    padding: 0 20px;
+    font-weight: 500;
+    font-size: 0.95rem;
     cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+}
+
+.search-box button:hover {
+    background-color: #1A237E;
 }
 
 /* 카테고리 버튼 */
@@ -225,6 +234,7 @@ body {
     flex-direction: column;
     border: 1px solid #e0e0e0;
     cursor: pointer;
+    height: 280px;
 }
 
 .card:hover {
@@ -244,6 +254,9 @@ body {
 .card-body {
     padding: 1.25rem 1.25rem 0.75rem;
     flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .card h3 {
@@ -253,6 +266,12 @@ body {
     line-height: 1.4;
     font-weight: 600;
     font-family: 'Paperlogy', sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: keep-all;
 }
 
 .card p {
@@ -260,6 +279,13 @@ body {
     margin-bottom: 1rem;
     font-size: 0.95rem;
     line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    max-height: 4.5em;
 }
 
 .card-footer {
@@ -290,9 +316,8 @@ body {
 
 /* 광고 섹션 */
 .ad-section {
-    max-width: 100%;
-    margin: 1rem auto 2rem;
-    padding: 0;
+    margin: 0 auto 1.5rem;
+    padding: 1rem 0 0;
 }
 
 .ad-container {
@@ -301,7 +326,7 @@ body {
     text-align: center;
     overflow: hidden;
     background-color: #f9f9f9;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     min-height: 100px;
 }
@@ -414,13 +439,15 @@ footer a:hover {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         padding: 0;
         max-width: none;
+        display: flex;
+        align-items: center;
     }
 
     .search-box input {
         width: 100%;
         height: 44px;
         font-size: 0.95rem;
-        padding: 0 48px 0 40px;
+        padding: 0 16px 0 40px;
         background: transparent;
         border: none;
         outline: none;
@@ -438,16 +465,18 @@ footer a:hover {
     }
 
     .search-box button {
-        position: absolute;
-        right: 8px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: transparent;
+        position: relative;
+        right: 0;
+        background-color: var(--primary-color);
+        color: white;
         border: none;
-        padding: 8px 16px;
-        color: transparent;
-        font-size: 0;
+        border-radius: 0 100px 100px 0;
+        height: 44px;
+        padding: 0 16px;
+        font-size: 0.85rem;
+        font-weight: 500;
         cursor: pointer;
+        flex-shrink: 0;
     }
 
     .category-buttons {
@@ -510,6 +539,7 @@ footer a:hover {
         flex-direction: column;
         overflow: hidden;
         transition: transform 0.2s;
+        height: 220px;
     }
 
     .card:last-child {
@@ -536,14 +566,26 @@ footer a:hover {
         margin: 0 0 0.5rem 0;
         color: #384068;
         line-height: 1.4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: keep-all;
     }
 
     .card p {
-        display: block;
+        display: -webkit-box;
         color: #666;
         margin-bottom: 0.5rem;
         font-size: 0.875rem;
         line-height: 1.5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-word;
+        max-height: 3em;
     }
 
     .card-footer {
@@ -578,7 +620,8 @@ footer a:hover {
     }
 
     .ad-section {
-        margin: 1rem auto 1.5rem;
+        margin: 0 auto 1.5rem;
+        padding: 1rem 0 0;
     }
     
     .ad-container {
