@@ -358,15 +358,38 @@ function updateHeroContent(category) {
 }
 
 // 검색 기능
+searchInput.addEventListener('focus', () => {
+    // 검색창에 포커스가 갈 때 현재 선택된 카테고리의 모든 카드를 표시
+    updateCards();
+});
+
 searchInput.addEventListener('input', () => {
     const searchTerm = searchInput.value.toLowerCase();
-    filterCards(searchTerm);
+    // 검색어가 존재할 때만 필터링 수행
+    if (searchTerm.trim().length > 0) {
+        filterCards(searchTerm);
+    } else {
+        // 검색어가 비어있을 때는 모든 카드 표시
+        showAllCards();
+    }
 });
 
 searchButton.addEventListener('click', () => {
     const searchTerm = searchInput.value.toLowerCase();
-    filterCards(searchTerm);
+    if (searchTerm.trim().length > 0) {
+        filterCards(searchTerm);
+    } else {
+        showAllCards();
+    }
 });
+
+// 모든 카드 표시 함수
+function showAllCards() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.style.display = 'block';
+    });
+}
 
 // 카드 필터링 함수
 function filterCards(searchTerm) {
@@ -392,32 +415,31 @@ function updateCards() {
         const card = document.createElement('div');
         card.className = 'card';
         
-        // 카드별 카테고리 이름을 결정 (각 카드마다 다른 카테고리)
-        let cardCategory = "인기 자격증";
+        // 카드별 카테고리 이름을 결정
+        let cardCategory;
         
-        // 카드 제목에 따라 카테고리 결정
-        if (item.title.includes("주민") || item.title.includes("가족")) {
-            cardCategory = "주민 자격증";
-        } else if (item.title.includes("기본") || item.title.includes("혼인")) {
-            cardCategory = "인기 자격증";
-        } else if (item.title.includes("입양")) {
-            cardCategory = "인기 자격증";
-        } else if (item.title.includes("제적")) {
-            cardCategory = "인기 자격증";
-        } else if (item.title.includes("부동산") || item.title.includes("등기")) {
-            cardCategory = "부동산";
-        } else if (item.title.includes("소득") || item.title.includes("세금")) {
-            cardCategory = "소득·세금";
-        } else if (item.title.includes("자동차") || item.title.includes("운전")) {
-            cardCategory = "자동차·운전";
-        } else if (item.title.includes("교원") || item.title.includes("보육")) {
-            cardCategory = "인기 자격증";
-        } else if (item.title.includes("국민연금") || item.title.includes("건강보험")) {
-            cardCategory = "인기 자격증";
-        } else if (item.title.includes("고용") || item.title.includes("경력") || item.title.includes("재직")) {
-            cardCategory = "인기 자격증";
-        } else if (item.title.includes("학업") || item.title.includes("졸업") || item.title.includes("성적")) {
-            cardCategory = "학업·졸업";
+        // 현재 선택된 카테고리에 따라 기본 카테고리 설정
+        switch(currentCategory) {
+            case 'resident':
+                cardCategory = "주민·가족";
+                break;
+            case 'property':
+                cardCategory = "부동산";
+                break;
+            case 'income':
+                cardCategory = "소득·세금";
+                break;
+            case 'vehicle':
+                cardCategory = "자동차·운전";
+                break;
+            case 'employment':
+                cardCategory = "고용";
+                break;
+            case 'education':
+                cardCategory = "학업·졸업";
+                break;
+            default:
+                cardCategory = "인기";
         }
         
         card.innerHTML = `

@@ -235,6 +235,7 @@ body {
     border: 1px solid #e0e0e0;
     cursor: pointer;
     height: 280px;
+    position: relative;
 }
 
 .card:hover {
@@ -252,11 +253,12 @@ body {
 }
 
 .card-body {
-    padding: 1.25rem 1.25rem 0.75rem;
+    padding: 1.25rem 1.25rem 3.5rem;
     flex: 1;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    min-height: 0;
 }
 
 .card h3 {
@@ -293,7 +295,10 @@ body {
     background-color: var(--primary-color);
     display: flex;
     justify-content: center;
-    margin-top: auto;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .card a {
@@ -540,6 +545,7 @@ footer a:hover {
         overflow: hidden;
         transition: transform 0.2s;
         height: 220px;
+        position: relative;
     }
 
     .card:last-child {
@@ -556,8 +562,10 @@ footer a:hover {
     }
 
     .card-body {
-        padding: 1rem 1rem 0.75rem;
+        padding: 1rem 1rem 3rem;
         flex: 1;
+        overflow: hidden;
+        min-height: 0;
     }
 
     .card h3 {
@@ -593,7 +601,10 @@ footer a:hover {
         background-color: var(--primary-color);
         display: flex;
         justify-content: center;
-        margin-top: auto;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
         border-top: none;
     }
 
